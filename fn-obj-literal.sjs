@@ -62,3 +62,5 @@ macro fn {
     fn__wrapper ($fn) ($rest ...)
   }
 }
+
+export fn;
