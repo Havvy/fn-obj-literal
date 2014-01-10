@@ -1,24 +1,24 @@
-macro fn__props {
+macro obj__props {
   // Handle ident props with trailing syntax
-  rule { $fnname ( $prop:ident $[:] $val:expr , $rest ... )  } => {
-    $fnname.$prop = $val;
-    fn__props $fnname ($rest ...)
+  rule { $objname ( $prop:ident $[:] $val:expr , $rest ... )  } => {
+    $objname.$prop = $val;
+    obj__props $objname ($rest ...)
   }
   // Handle string props with trailing syntax
-  rule { $fnname ( $prop:lit $[:] $val:expr , $rest ... )  } => {
-    $fnname[$prop] = $val;
-    fn__props $fnname ($rest ...)
+  rule { $objname ( $prop:lit $[:] $val:expr , $rest ... )  } => {
+    $objname[$prop] = $val;
+    obj__props $objname ($rest ...)
   }
   // Handle ident props with no syntax left
-  rule { $fnname ( $prop:ident $[:] $val:expr )  } => {
-    $fnname.$prop = $val;
+  rule { $objname ( $prop:ident $[:] $val:expr )  } => {
+    $objname.$prop = $val;
   }
   // Handle string props with no syntax left
-  rule { $fnname ( $prop:lit $[:] $val:expr )  } => {
-    $fnname[$prop] = $val;
+  rule { $objname ( $prop:lit $[:] $val:expr )  } => {
+    $objname[$prop] = $val;
   }
   // Noop
-  rule { $fnname () } => { }
+  rule { $objname () } => { }
 }
 
 macro fn__wrapper {
@@ -26,16 +26,16 @@ macro fn__wrapper {
   rule { ( function $name ($params ...) { $body ... } ) ( $props ... ) } => {
     (function() {
       var $name = function $name ($params ...) { $body ... };
-      fn__props $name ($props ...)
+      obj__props $name ($props ...)
       return $name;
-    }())
+    }.call(this))
   }
   
   // Anonymous functions
   rule { ( $fn ... ) ( $props ... ) } => {
     (function () {
       var _fn = $fn ... ;
-      fn__props _fn ($props ...)
+      obj__props _fn ($props ...)
       return _fn;
     }())
   }

@@ -1,0 +1,26 @@
+{
+  "name": "fn-obj-literal",
+  "version": "1.0.0",
+  "description": "Function-Object Literal Macro for Sweet.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Havvy/fn-obj-literal.git"
+  },
+  "keywords": [
+    "macro",
+    "sweetjs",
+    "sweet",
+    "function-object",
+    "literal"
+  ],
+  "author": "Ryan Scheel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Havvy/fn-obj-literal/issues"
+  },
+  "homepage": "https://github.com/Havvy/fn-obj-literal"
+}
