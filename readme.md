@@ -1,6 +1,8 @@
 # Function-Object Literal Syntax
 
-Requires [Sweet.js](https://github.com/mozilla/sweet.js)!
+Deprecated. If you want to take ownership, file an issue.
+
+Requires [Sweet.js](https://github.com/mozilla/sweet.js) version less than 1.0!
 
 This macro combines the power of two powerful literals: Functions and Objects.
 
@@ -51,5 +53,3 @@ please file an issue with your suggestion.
 ## Tested
 
 This code has tests in the form of `examples.sjs`.
-
-You can run them with `npm test` (soon).
